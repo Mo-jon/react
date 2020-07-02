@@ -5,6 +5,7 @@ import { Route, HashRouter, Redirect } from 'react-router-dom';
 import Home from '../pages/home'
 import About from '../pages/about'
 import Message from '../pages/message'
+import List from '../pages/list'
 // const Message = React.lazy(() => import('../pages/message'));
 
 export default (
@@ -14,5 +15,6 @@ export default (
     <Route path={'/home'} component={Home}/>
     <Route path={'/about'} component={About}/>
     <Route path={'/message'}  component={Message}/>
+    <Route path={'/list'}  component={List}/>
   </HashRouter>
 )

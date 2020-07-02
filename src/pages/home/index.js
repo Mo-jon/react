@@ -1,18 +1,13 @@
 import React from 'react';
 import logo from '../../logo.svg';
-import { Link } from 'react-router-dom';
+
+import Nav from '../../components/nav'
 
 function Home() {
     return (
         <div className="Home">
           <header>this is page of Home</header>
-          <ul>
-            {/* Link 标签跳转 */}
-            <li><Link to="/home">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            {/* a 标签跳转 */}
-            <li><a href="#/message">Message</a></li>
-          </ul>
+          <Nav></Nav>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.

@@ -17,6 +17,22 @@ function Dom(props){
         <div>
             当前值：{count}
             <button onClick={add}>点击我+1</button>
+
+            {props.top && <hr/>}
+            <div>
+                {/* 插入top */}
+                <div className="SplitPane-top">
+                    {props.top}
+                </div>
+                
+                {/* 插槽 */}
+                {props.children}
+
+                {/* 插入bottom */}
+                <div className="SplitPane-bottom">
+                    {props.bottom}
+                </div>
+            </div>
         </div>
     )
 }

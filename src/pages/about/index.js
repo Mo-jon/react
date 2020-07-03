@@ -32,7 +32,7 @@ function About() {
     }
 
     return (
-        <div className="About">
+        <div className="about">
             this is page of About
             <Nav></Nav>
             <button onClick={updateUser}>更新user信息</button>

@@ -1,7 +1,4 @@
-import React, {
-    useState,
-    useEffect
-} from 'react';
+import React, { useState, useEffect } from 'react';
 import ListItem from '../../components/listItem';
 import Nav from '../../components/nav'
 

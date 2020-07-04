@@ -21,6 +21,19 @@ class ApiClass extends HttpClass {
       }
     );
   }
+
+  /**
+   * 商品列表
+   */
+  shopList() {
+    return this.get(
+      null,
+      {
+        "controller": 'cropManage',
+        "command": 'manage'
+      }
+    );
+  }
 }
 
 export default new ApiClass()

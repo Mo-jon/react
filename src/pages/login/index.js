@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
 import Api from '../../services/api';
+import Store from '../../store'
 
-function Login(){
+function Login(props){
     const [form, setForm] = useState({
         name: "",
         password: ""
     });
 
     function submit(){
-        console.log('提交', form)
-        Api.login(form.name, form.password).then(resp => {
-            console.log('[服务器返回结果]', resp)
+        Api.login(form.name, form.password).then(res => {
+            console.log('[服务器返回结果]', res);
+            if(!res.error){
+                let data = res.data;
+                Store.dispatch({
+                    type: 'setUser',
+                    value: {
+                        id: data.admin_id,
+                        token: data.admin_token
+                    }
+                });
+                // router 跳转
+                props.history.push('/list');
+            }
         })
     }
 

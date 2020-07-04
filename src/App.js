@@ -5,6 +5,9 @@ import Store from './store'
 import Routes from './router';
 
 function App() {
+  // 获取最新 user
+  Store.dispatch({type: 'getUser'});
+  
   return (
     <div className="App">
         {/* 挂载 redux store */}

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Qs from 'qs'
-// import LocalStorage from "@/store/localStorage";
+import Store from '../store'
 
 export default class HttpClass {
   constructor() {
@@ -15,7 +15,7 @@ export default class HttpClass {
   requestConfig(){
     return {
       headers: {
-        // "Token": LocalStorage.user ? LocalStorage.user.token : '',
+        "Token": Store.getState().user ? Store.getState().user.token : '',
       },
       baseURL: this.base
     }
@@ -27,7 +27,10 @@ export default class HttpClass {
    * @param {object} params url参数
    */
   get(url, params) {
+    console.log('请求配置---->', Store.getState().user);
+    
     return new Promise((resolve, reject) => {
+      console.log('[get请求]', url, params);
       const path = this.joinPath(url, params);
       const requestConfig = this.requestConfig();
       this.http.get(path, requestConfig).then((response) => {
@@ -78,7 +81,7 @@ export default class HttpClass {
   power(code) {
     if (code === 1) {
       // 权限无效,清除登录信息
-    //   LocalStorage.logout();
+      Store.dispatch({type: 'clearUser'});
     }
   }
 }

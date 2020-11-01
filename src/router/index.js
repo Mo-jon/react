@@ -1,12 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, HashRouter, Switch, Redirect } from 'react-router-dom';
 
-// 导入页面
-import Home from '../pages/home'
-
 // 配置路由
 const routes = [
-  { path: "/home", component: Home },
+  { path: "/home", component: lazy(() => import('../pages/home')) },
   { path: "/login", component: lazy(() => import('../pages/login')) },
   // 测试页
   { path: "/demo", component: lazy(() => import('../Demo')) },

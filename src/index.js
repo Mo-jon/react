@@ -5,10 +5,6 @@ import App from './App';
 import './index.css';
 
 ReactDOM.render(
-  // StrictMode 会执行两次，做深度错误检查
-  // <React.StrictMode>
-  //   <App/>
-  // </React.StrictMode>,
   <App/>,
   document.getElementById('root')
 );

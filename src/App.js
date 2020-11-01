@@ -12,7 +12,6 @@ function App() {
     <div className="App">
         {/* 挂载 redux store */}
         <Provider store={Store}>
-          {/* 挂载 Routes */}
           {Routes}
         </Provider>
     </div>

@@ -1,0 +1,7 @@
+.Test {
+    border: 1px solid;
+}
+
+.Test .text {
+    color: red;
+}

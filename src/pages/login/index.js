@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Api from '../../services/api';
 import Store from '../../store'
+import Nav from '../../components/nav'
 
 function Login(props){
     const [form, setForm] = useState({
@@ -28,6 +29,7 @@ function Login(props){
 
     return (
         <div className="login">
+            <Nav></Nav>
             <div>
                 <div>
                     <label>用户名</label>

@@ -7,6 +7,8 @@ import Store from '../store';
 import Api from '../services/api';
 
 function Demo(props) {
+    // 路由跳转
+    const [route] = useState(props.history);
     // 获取store中的user信息
     const [user, setUser] = useState("");
     // 列表
@@ -70,7 +72,7 @@ function Demo(props) {
 
     return (
         <div className="Message">
-            <button  onClick={() => props.history.push('/home')}>跳转首页</button>
+            <button  onClick={() => route.push('/home')}>跳转首页</button>
             this is page of Message
             <p>Store user：{user}</p>
             <button onClick={updateUser}>更新user信息</button>

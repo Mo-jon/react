@@ -9,7 +9,7 @@ import Routes from './router';
 import './index.css';
 
 // 获取最新 user
-Store.dispatch({type: 'getUser'});
+Store.dispatch({ type: 'getUser' });
 
 ReactDOM.render(
   // 挂载 redux store

@@ -3,16 +3,16 @@ import Api from '../../services/api';
 import Store from '../../store'
 import Nav from '../../components/nav'
 
-function Login(props){
+function Login(props) {
     const [form, setForm] = useState({
         name: "",
         password: ""
     });
 
-    function submit(){
+    function submit() {
         Api.login(form.name, form.password).then(res => {
             console.log('[服务器返回结果]', res);
-            if(!res.error){
+            if (!res.error) {
                 let data = res.data;
                 Store.dispatch({
                     type: 'setUser',
@@ -33,11 +33,11 @@ function Login(props){
             <div>
                 <div>
                     <label>用户名</label>
-                    <input type="text" value={form.name} onChange={(event)=>setForm({...form, name: event.target.value})}></input>
+                    <input type="text" value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })}></input>
                 </div>
                 <div>
                     <label>密码</label>
-                    <input type="text" value={form.password} onChange={(event)=>setForm({...form, password: event.target.value})}></input>
+                    <input type="text" value={form.password} onChange={(event) => setForm({ ...form, password: event.target.value })}></input>
                 </div>
                 <button onClick={submit}>提交</button>
             </div>

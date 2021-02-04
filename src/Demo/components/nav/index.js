@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './nav.css';
 
-function Nav(){
-    return(
+function Nav() {
+    return (
         <ul className="nav">
             {/* Link 标签跳转 */}
             <li><Link to="/home">Home</Link></li>

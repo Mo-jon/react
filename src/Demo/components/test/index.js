@@ -12,10 +12,10 @@ export default class Test extends React.Component {
 
   render() {
     return (
-        <div className="Test">
-            this is a TestComponent
-            <p className="text">{this.props.name}</p>
-        </div>
+      <div className="Test">
+        this is a TestComponent
+        <p className="text">{this.props.name}</p>
+      </div>
     )
   }
 }

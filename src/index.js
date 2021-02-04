@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 import Store from './store';
 import Routes from './router';
 
+// Exported from redux-devtools
+// import { createDevTools } from 'redux-devtools';
+
 // 全局样式
 import './index.css';
-
-// 获取最新 user
-Store.dispatch({ type: 'getUser' });
 
 ReactDOM.render(
   // 挂载 redux store

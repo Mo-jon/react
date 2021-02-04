@@ -20,7 +20,6 @@ function Demo(props) {
     useEffect(() => {
         getUser();
         getList();
-        console.log("Store.subscribe", Store.subscribe);
     }, []);
 
     // 第二个参数传[count]，每次count变化时执行

@@ -81,7 +81,7 @@ export default class HttpClass {
   power(code) {
     if (code === 1) {
       // 权限无效,清除登录信息
-      Store.dispatch({type: 'clearUser'});
+      // Store.dispatch({type: 'clearUser'});
     }
   }
 }

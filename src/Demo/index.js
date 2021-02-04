@@ -43,7 +43,7 @@ function Demo(props) {
 
     // 订阅Store变化，重新获取user
     Store.subscribe(() => {
-        console.log("订阅user信息变化", arguments);
+        console.log("订阅Store信息变化", arguments);
         getUser();
     })
 

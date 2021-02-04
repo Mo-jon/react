@@ -19,7 +19,7 @@ const Store = createStore(
       case 'clearUser': clearUser(); break;
 
       default:
-        return state;
+        break;
     }
     return state
 

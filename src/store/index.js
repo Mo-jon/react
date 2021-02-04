@@ -1,12 +1,12 @@
 import { createStore } from 'redux'
 
-let Store = createStore(
+const Store = createStore(
   /**
    * action方法, 更新state
    * @param {object} state 所有状态
    * @param {object} action 通过dispatch()传入的方法参数
    */
-  function(state, action){
+  function (state, action) {
     // console.log('[Store action]', state, action)
     switch (action.type) {
       // 设置 user
@@ -17,28 +17,28 @@ let Store = createStore(
 
       // 清除 user
       case 'clearUser': clearUser(); break;
-    
+
       default:
-        break;
+        return state;
     }
     return state
 
 
     // 从localStorage取出user
-    function getUser(){
+    function getUser() {
       let user = localStorage.getItem('user')
-      state.user=JSON.parse(user)
+      state.user = JSON.parse(user)
     }
 
     // 添加user到localStorage
-    function setUser(value){
+    function setUser(value) {
       let user = JSON.stringify(value)
-      localStorage.setItem('user',user)
+      localStorage.setItem('user', user)
       getUser();
     }
 
     // 从localStorage清除user
-    function clearUser(value){
+    function clearUser(value) {
       localStorage.removeItem('user')
       getUser();
     }
@@ -54,7 +54,7 @@ let Store = createStore(
   }
 )
 
-// 用dispatch触发action
+// 用dispatch调度action
 // store.dispatch({
 //   type: 'ADD_TODO',
 //   text: 'Hello word'

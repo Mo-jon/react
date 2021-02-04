@@ -17,14 +17,15 @@ function Demo(props) {
     const [selectItem, setSelectItem] = useState(null);
 
     // 第二个参数传[]，表示只加载一次
-    useEffect(()=>{
+    useEffect(() => {
         getUser();
         getList();
+        console.log("Store.subscribe", Store.subscribe);
     }, []);
 
     // 第二个参数传[count]，每次count变化时执行
     useEffect(() => {
-        let print = function() {
+        let print = function () {
             console.log('我是钩子： 被执行了', count)
         }; print();
 
@@ -40,39 +41,43 @@ function Demo(props) {
         setUser(JSON.stringify(u));
     }
 
+    // 订阅Store变化，重新获取user
+    Store.subscribe(() => {
+        console.log("订阅user信息变化", arguments);
+        getUser();
+    })
+
     // 更新user信息
-    function updateUser(){
-        let n = Math.round(Math.random()*100);
+    function updateUser() {
+        let n = Math.round(Math.random() * 100);
         Store.dispatch({
             type: 'setUser',
             value: {
                 id: n,
-                token: '******'+n
+                token: '******' + n
             }
         })
-        // 重新获取
-        getUser();
     }
 
     // 获取列表
     function getList() {
         Api.shopList().then(res => {
             console.log('获取列表:', res)
-            if(res.res){
+            if (res.res) {
                 setList(res.data)
             }
         })
     };
 
     // 接收子组件事件
-    function childrenEvent(value){
+    function childrenEvent(value) {
         console.log('我接收了一个子组件事件', value);
         setSelectItem(value)
     }
 
     return (
         <div className="Message">
-            <button  onClick={() => route.push('/home')}>跳转首页</button>
+            <button onClick={() => route.push('/home')}>跳转首页</button>
             this is page of Message
             <p>Store user：{user}</p>
             <button onClick={updateUser}>更新user信息</button>
@@ -87,7 +92,7 @@ function Demo(props) {
             {list.map((item, index) =>
                 <ListItem text={item} key={index} myEvent={childrenEvent}></ListItem>
             )}
-            <button onClick = {() => setCount(count + 1)}>
+            <button onClick={() => setCount(count + 1)}>
                 点击我执行钩子 {count}
             </button>
         </div>
